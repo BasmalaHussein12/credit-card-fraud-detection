@@ -205,8 +205,8 @@ credit-card-fraud-detection/
 * [x] Time-based analysis
 * [x] Feature-target correlation analysis
 * [x] Initial feature selection
-* [ ] Data preprocessing
-* [ ] Baseline classification models
+* [x] Data preprocessing
+* [x] Baseline classification models
 * [ ] Neural network
 * [ ] Model evaluation
 * [ ] Model comparison
