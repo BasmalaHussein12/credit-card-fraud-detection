@@ -67,6 +67,73 @@ Classical machine learning models will be used as baselines, such as:
 * Logistic Regression
 * Random Forest
 
+---------------------------------------------------------------------------------------------------------------
+
+## Feature Importance & Model Interpretation
+
+One of the most interesting parts of this project was exploring **feature importance** for the first time.
+
+After training my first machine learning model, the **Random Forest**, I examined which features contributed the most to its predictions:
+
+```python
+feature_importance = pd.Series(
+    Random_Forest_Model.feature_importances_,
+    index=x_train.columns
+).sort_values(ascending=False)
+
+feature_importance
+```
+
+The most important features were:
+
+| Feature | Importance |
+| ------- | ---------: |
+| V17     |     19.91% |
+| V14     |     13.29% |
+| V12     |     10.05% |
+| V11     |      7.31% |
+| V10     |      7.13% |
+
+### EDA Findings Confirmed by the First ML Model
+
+One of the most exciting outcomes was seeing that my **EDA analysis was supported by my first machine learning model**.
+
+During EDA, I investigated the relationship between the features and the target `Class`. The features `V17`, `V14`, `V12`, `V11`, and `V10` showed some of the strongest relationships with the target.
+
+After training the Random Forest, these same features appeared among the **most important features used by the model**.
+
+I also visualized their distributions across legitimate and fraudulent transactions and found noticeable differences between the two classes.
+
+This gave me a strong progression:
+
+**EDA → Identified potentially important features → Visualized their distributions → Trained the first ML model → Feature importance supported the EDA findings**
+
+This was especially meaningful because the model was trained independently of my earlier conclusions. It gave me evidence that the patterns I noticed during EDA were not simply observations in isolation — they contained useful predictive information for the classification task.
+
+> **Note:** Correlation and Random Forest feature importance measure different things. Correlation measures the strength of a linear relationship with the target, while feature importance reflects how useful a feature was to the Random Forest when making predictions. Therefore, their values should not be compared directly.
+
+### A Personal Learning Moment (I am over the moon due to this project)
+
+This was my **first time using feature importance**, and honestly, it blew my mind.
+
+Seeing the Random Forest independently identify `V17`, `V14`, `V12`, `V11`, and `V10` as highly important after I had already noticed similar patterns during EDA was one of the most exciting moments of this project.
+
+It made the connection between **data exploration and machine learning** feel much more real to me.
+
+For the first time, I wasn't just:
+
+> *"I trained a model and got 99.96% accuracy."*
+
+I was actually asking:
+
+> *"What did my model learn, and does it agree with what I discovered during EDA?"*
+
+And seeing that my **EDA analysis was supported by my first ML model** was a genuinely rewarding moment in my learning journey.
+
+> **Important:** Feature importance does not mean that these features causally cause fraud. It indicates that the Random Forest relied more heavily on these features when making its predictions.
+
+---------------------------------------------------------------------------------------------------------------
+
 ### Neural Network
 
 A neural network will then be developed as the main deep learning model for the binary classification task.
